@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=rowdb
+      - MYSQL_ROOT_PASSWORD=pass
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - "./db/db_data:/var/lib/mysql"
+      - "./scripts/db/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql"
+
+  notebook:
+    image: notebook
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - "./notebook/work:/nb"
