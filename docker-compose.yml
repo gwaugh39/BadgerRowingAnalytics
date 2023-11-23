@@ -9,7 +9,8 @@ services:
       - "127.0.0.1:3306:3306"
     volumes:
       - "./db/db_data:/var/lib/mysql"
-      - "./scripts/db/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql"
+      - "./scripts/db/01_create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql"
+      - "./scripts/db/02_populate_test_types.sql:/docker-entrypoint-initdb.d/02_populate_test_types.sql"
 
   notebook:
     image: notebook

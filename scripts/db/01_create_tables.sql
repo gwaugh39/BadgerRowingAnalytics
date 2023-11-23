@@ -7,6 +7,7 @@ CREATE TABLE Athletes (
     lastName VARCHAR(50) NOT NULL,
     startYear INT,
     endYear INT,
+    isActive BOOLEAN NOT NULL,
     PRIMARY KEY (athleteID)
 );
 
